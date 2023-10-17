@@ -38,3 +38,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+const token = 'your-jwt-token-here';
+
+fetch('/protected-route', {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${token}`,
+  },
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
